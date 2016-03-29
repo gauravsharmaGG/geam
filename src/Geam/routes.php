@@ -1,0 +1,1 @@
+Route::get('geam/', return 'cdscs');

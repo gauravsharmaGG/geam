@@ -1,0 +1,16 @@
+{
+    "name": "goksgreat/geam",
+    "description": "Goksgreat Automated Restful API Maker",
+    "type": "app",
+    "require": {
+        "vinelab/neoeloquent": "^1.2"
+    },
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Gaurav Sharma",
+            "email": "smp_dlh@yahoo.co.in"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,37 @@
+<?php
+
+
+//GEAM Generator for Model
+namespace App;
+
+use Vinelab\NeoEloquent\Eloquent\Model as NeoEloquent;
+use Vinelab\NeoEloquent\Eloquent\SoftDeletes;
+
+class {modelName} extends NeoEloquent {
+
+	    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
+    protected $label = '{labelName}'; // or array('User', 'Fan')
+
+    protected $fillable = [{fieldsName}];
+
+    
+    
+    public function worksat()
+    {
+        return $this->morphTo();
+    }
+
+     public function person()
+    {
+        return $this->belongsTo('Person');
+    }
+
+
+    public static $rules = array(
+        'post'=>'required',
+        );
+
+}

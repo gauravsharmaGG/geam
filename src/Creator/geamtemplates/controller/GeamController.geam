@@ -1,0 +1,117 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App;
+use Response;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class {controllerName} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+         $return = App\{modelName}::all();
+ 
+    return Response::json(array(
+        'error' => false,
+        'data' => $return->toArray()),
+        200
+    );
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $return = App\{modelName}::create($request->all());
+ 
+        return Response::json([
+                'message' => '{modelName} Created Succesfully',
+                'data' => $return
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $return = App\{modelName}::find($id);
+ 
+        if(!$return){
+            return Response::json([
+                'error' => [
+                    'message' => '{modelName} does not exist'
+                ]
+            ], 404);
+        }
+ 
+        return Response::json([
+                'data' => $return
+        ], 200);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $return = App\{modelName}::find($id);
+        {updateParameter}
+        $return->save(); 
+ 
+        return Response::json([
+                'message' => '{modelName} Updated Succesfully'
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        App\{modelName}::destroy($id);
+    }
+}
